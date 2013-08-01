@@ -14,6 +14,8 @@ public class OhHaTyo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Henkilo kaveri = new Kaveri("Mika", 23, "0404404440");
+        System.out.println(kaveri.tulosta());
     }
 }
