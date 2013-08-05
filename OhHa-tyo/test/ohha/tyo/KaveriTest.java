@@ -41,4 +41,5 @@ public class KaveriTest {
         Kaveri kaveri = new Kaveri("Mika", 23, "0976543");
         assertEquals("Nimi: Mika\nIkä: 23\nPuhelin: 0976543",kaveri.tulosta());
     }
+      
 }
