@@ -2,7 +2,7 @@
 package ohha.tyo;
 
 
-public class Kaveri implements Henkilo {
+public class Kaveri {
 
     private String nimi;
     private int ika;

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class Kalenteri {
     
     private Scanner lukija = new Scanner(System.in);
-    private ArrayList<Henkilo>kaverilista;
+    private ArrayList<Kaveri>kaverilista;
     
     public Kalenteri(){
-        this.kaverilista = new ArrayList<Henkilo>();
+        this.kaverilista = new ArrayList<Kaveri>();
     }
     
     public void lisaaKaveri(){
@@ -23,12 +23,12 @@ public class Kalenteri {
         System.out.println("Kaverin puhelinnumero: "); 
         puhelin = lukija.nextLine();
         
-        Henkilo kaveri = new Kaveri(nimi, ika, puhelin);
+        Kaveri kaveri = new Kaveri(nimi, ika, puhelin);
         kaverilista.add(kaveri);
     }
     
     public void listaaKaverit(){
-        for( Henkilo kaveri : kaverilista){
+        for( Kaveri kaveri : kaverilista){
             kaveri.tulosta();
             System.out.println("Tulostettu");
         }
