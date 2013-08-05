@@ -29,8 +29,10 @@ public class Kalenteri {
     
     public void listaaKaverit(){
         for( Kaveri kaveri : kaverilista){
-            kaveri.tulosta();
-            System.out.println("Tulostettu");
+            System.out.println(kaveri.tulosta());
+            System.out.println("\n");
         }
+        System.out.println("-----------");
+        System.out.println("Tulostettu");
     }
 }
