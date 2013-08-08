@@ -2,14 +2,20 @@ package ohha.tyo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Kalenteri {
     
     private Scanner lukija = new Scanner(System.in);
     private ArrayList<Kaveri>kaverilista;
     private ArrayList<Tekeminen>askarlista;
+    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     
     public Kalenteri(){
+        this.askarlista = new ArrayList<Tekeminen>();
         this.kaverilista = new ArrayList<Kaveri>();
     }
     
@@ -46,11 +52,13 @@ public class Kalenteri {
     }
     
     public void lisaaTekeminen(){
-        String aika;
+        Date aika;
+        String aikaApu;
         String paikka;
         String askar;
         System.out.println("Muistutuksen aika? :");
-        aika = lukija.nextLine();
+        aikaApu = lukija.nextLine();
+        aika = muutaAika(aikaApu);
         System.out.println("Paikka? :");
         paikka = lukija.nextLine();
         System.out.println("Muistutus: ");
@@ -66,5 +74,30 @@ public class Kalenteri {
     
     public ArrayList<Tekeminen> askarlista(){
         return askarlista;
+    }
+    
+    public void listaaTekemiset(){
+        for(Tekeminen tekeminen : askarlista){
+            System.out.println(tekeminen.tulosta()+"\n");
+        }
+        System.out.println("-----------\nTulostettu");
+    }
+    
+    public Date muutaAika(String aika){
+        Date d = null;
+        boolean jatka = true;
+        do{
+            try{
+                d = df.parse(aika);
+                jatka = false;
+                return d;
+            }catch(ParseException e){
+                System.out.println("Ei pysty muuttamaan: " + aika);
+                aika = lukija.nextLine();
+            } 
+        }while(jatka);
+        
+        return null;
+        
     }
 }

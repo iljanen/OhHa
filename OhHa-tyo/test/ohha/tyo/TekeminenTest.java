@@ -4,6 +4,10 @@
  */
 package ohha.tyo;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,9 +44,11 @@ public class TekeminenTest {
      * Test of tulosta method, of class Tekeminen.
      */
     @Test
-    public void merkintaTulostuuOikein() {
-        Tekeminen askare = new Tekeminen("23.06.2013", "Tikkurila", "Hammaslääkäri");
+    public void merkintaTulostuuOikein() throws ParseException {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Date d1 = df.parse("23-12-2011");
+        Tekeminen askare = new Tekeminen(d1 , "Tikkurila", "Hammaslääkäri");
         System.out.println(askare.tulosta());
-        assertEquals("23.06.2013\nTikkurila\nHammaslääkäri", askare.tulosta());
+        assertEquals("Fri Dec 23 00:00:00 EET 2011\nTikkurila\nHammaslääkäri", askare.tulosta());
     }
 }
