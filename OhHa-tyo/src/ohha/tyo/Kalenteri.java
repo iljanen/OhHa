@@ -27,14 +27,21 @@ public class Kalenteri {
         nimi = lukija.nextLine();
         System.out.println("Kaverin ikä: ");
         ika = Integer.parseInt(lukija.nextLine());
-        System.out.println("Kaverin puhelinnumero: "); 
+        System.out.println("Kaverin puhelinnumero: ");        
         puhelin = lukija.nextLine();
+        if(puhelin.isEmpty()){
+            puhelin = "Ei ole.";
+        }
         
         Kaveri kaveri = new Kaveri(nimi, ika, puhelin);
+        
         kaverilista.add(kaveri);
     }
     
     public void lisaaKaveri(Kaveri kaveri){ //Parametrillinen metodi kaverin lisäämiseen
+        if(kaveri.Puhelin().equals("")){
+            kaveri.setPuhelin("Ei ole.");
+        }
         kaverilista.add(kaveri);
     }
     
@@ -56,7 +63,7 @@ public class Kalenteri {
         String aikaApu;
         String paikka;
         String askar;
-        System.out.println("Muistutuksen aika? :");
+        System.out.println("Muistutuksen aika? Muodossa dd/mm/20yy :");
         aikaApu = lukija.nextLine();
         aika = muutaAika(aikaApu);
         System.out.println("Paikka? :");

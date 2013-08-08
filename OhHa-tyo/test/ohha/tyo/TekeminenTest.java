@@ -49,6 +49,6 @@ public class TekeminenTest {
         Date d1 = df.parse("23-12-2011");
         Tekeminen askare = new Tekeminen(d1 , "Tikkurila", "Hammaslääkäri");
         System.out.println(askare.tulosta());
-        assertEquals("Fri Dec 23 00:00:00 EET 2011\nTikkurila\nHammaslääkäri", askare.tulosta());
+        assertEquals("23/12/2011\nTikkurila\nHammaslääkäri", askare.tulosta());
     }
 }

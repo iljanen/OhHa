@@ -26,6 +26,18 @@ public class Kaveri {
         return this.puhelin;
     }
     
+    public void setNimi(String nimi){
+        this.nimi = nimi;
+    }
+    
+    public void setIka(int ika){
+        this.ika = ika;
+    }
+    
+    public void setPuhelin(String puhelin){
+        this.puhelin = puhelin;
+    }
+    
     public String tulosta(){ //Palauttaa Kaveri-olion tiedot
         return "Nimi: "+this.nimi +"\nIkä: "+this.ika+"\nPuhelin: "+this.puhelin;
     }

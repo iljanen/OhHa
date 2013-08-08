@@ -49,6 +49,16 @@ public class KalenteriTest {
         lista.add(kaveri);
         assertEquals(lista, kalenteri.kaverilista());
     }
+    /**
+     * Testaa voiko puhelin olla tyhjä.
+     */
+    @Test
+    public void kaveriIlmanPuhelinta(){
+        Kalenteri kalenteri = new Kalenteri();
+        Kaveri kaveri = new Kaveri("Mika", 23, "");
+        kalenteri.lisaaKaveri(kaveri);
+        assertEquals("Ei ole.", kaveri.Puhelin());
+    }
 
     /**
      * Test of listaaKaverit method, of class Kalenteri.
