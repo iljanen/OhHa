@@ -48,7 +48,6 @@ public class TekeminenTest {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Date d1 = df.parse("23-12-2011");
         Tekeminen askare = new Tekeminen(d1 , "Tikkurila", "Hammaslääkäri");
-        System.out.println(askare.tulosta());
         assertEquals("23/12/2011\nTikkurila\nHammaslääkäri", askare.tulosta());
     }
 }
