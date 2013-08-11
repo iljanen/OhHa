@@ -22,8 +22,9 @@ public class Launcher {
             boolean started = true;
             System.out.println("1. Lisää kaveri.");
             System.out.println("2. Listaa kaverit.");
-            System.out.println("3. Lisää askar.");
-            System.out.println("4. Listaa askareet.");
+            System.out.println("3. Muokkaa kaverin tietoja.");
+            System.out.println("4. Lisää askar.");
+            System.out.println("5. Listaa askareet.");
             System.out.println("0. Lopeta.");
             System.out.println("Mitä haluat tehdä? (syötä numero)");
             do {
@@ -43,9 +44,11 @@ public class Launcher {
                         break;
                 case 2: kalenteri.listaaKaverit();
                         break;
-                case 3: kalenteri.lisaaTekeminen();
+                case 3: kalenteri.muokkaaKaveria();
                         break;
-                case 4: kalenteri.listaaTekemiset();
+                case 4: kalenteri.lisaaTekeminen();
+                        break;
+                case 5: kalenteri.listaaTekemiset();
                         break;
                 case 0: System.exit(0);        
                 default: 

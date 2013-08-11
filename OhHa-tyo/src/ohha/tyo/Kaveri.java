@@ -26,15 +26,15 @@ public class Kaveri {
         return this.puhelin;
     }
     
-    public void setNimi(String nimi){
+    public void muokkaaNimi(String nimi){
         this.nimi = nimi;
     }
     
-    public void setIka(int ika){
+    public void muokkaaIka(int ika){
         this.ika = ika;
     }
     
-    public void setPuhelin(String puhelin){
+    public void muokkaaPuhelin(String puhelin){
         this.puhelin = puhelin;
     }
     

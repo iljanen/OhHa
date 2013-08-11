@@ -40,9 +40,32 @@ public class Kalenteri {
     
     public void lisaaKaveri(Kaveri kaveri){ //Parametrillinen metodi kaverin lisäämiseen
         if(kaveri.Puhelin().equals("")){
-            kaveri.setPuhelin("Ei ole.");
+            kaveri.muokkaaPuhelin("Ei ole.");
         }
         kaverilista.add(kaveri);
+    }
+    
+    public void muokkaaKaveria (){
+        boolean Loop = true;
+        boolean onnistui = false;
+        while(Loop){
+            System.out.println("Syötä kaverin nimi: ");
+            String nimi = lukija.nextLine();
+            for(Kaveri kaveri : kaverilista){
+                if(nimi.toLowerCase().equals(kaveri.Nimi().toLowerCase())){
+                    System.out.println("Syötä uusi nimi: ");
+                    String uusiNimi = lukija.nextLine();
+                    kaveri.muokkaaNimi(uusiNimi);
+                    onnistui = true;
+                    Loop = false;
+                }
+            }
+            if(onnistui == true){
+                System.out.println("Muokkaus onnistui.");
+            }else{
+                System.out.println("Kaveria ei löytynyt.");
+            }
+        }
     }
     
     public ArrayList<Kaveri> kaverilista(){ //Palauttaa kaverilistan sisällön
