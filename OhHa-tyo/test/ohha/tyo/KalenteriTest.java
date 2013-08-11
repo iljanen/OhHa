@@ -4,7 +4,11 @@
  */
 package ohha.tyo;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,9 +41,7 @@ public class KalenteriTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of lisaaKaveri method, of class Kalenteri.
-     */
+    
     @Test
     public void kaverinLisääminenToimii() {
         Kalenteri kalenteri = new Kalenteri();
@@ -49,9 +51,7 @@ public class KalenteriTest {
         lista.add(kaveri);
         assertEquals(lista, kalenteri.kaverilista());
     }
-    /**
-     * Testaa voiko puhelin olla tyhjä.
-     */
+    
     @Test
     public void kaveriIlmanPuhelinta(){
         Kalenteri kalenteri = new Kalenteri();
@@ -59,10 +59,15 @@ public class KalenteriTest {
         kalenteri.lisaaKaveri(kaveri);
         assertEquals("Ei ole.", kaveri.Puhelin());
     }
+    
+    @Test
+    public void nimenMuokkausTesti(){
+        Kaveri kaveri = new Kaveri("Mika", 23, "09850");
+        kaveri.muokkaaNimi("Miksu");
+        assertEquals("Miksu", kaveri.Nimi());
+    }
 
-    /**
-     * Test of listaaKaverit method, of class Kalenteri.
-     */
+    
     @Test
     public void testListaaKaverit() {
         Kalenteri kalenteri = new Kalenteri();
@@ -74,5 +79,15 @@ public class KalenteriTest {
         lista.add(kaveri);
         lista.add(kaveri2);
         assertEquals(lista, kalenteri.kaverilista());
+    }
+    
+    @Test
+    public void testaaAjanMuutos() throws ParseException{
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date aika;
+        String aikaApu = "23/05/2014"; 
+        aika = df.parse(aikaApu);
+        Tekeminen tekeminen = new Tekeminen(aika, "Tiksi", "Hammas");
+        assertEquals("23/05/2014", tekeminen.AikaTekstina());
     }
 }
