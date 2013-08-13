@@ -20,11 +20,14 @@ public class Launcher {
         
         while(cont){
             boolean started = true;
+            System.out.println("**Päävalikko**");
+            System.out.println("--------------");
             System.out.println("1. Lisää kaveri.");
             System.out.println("2. Listaa kaverit.");
             System.out.println("3. Muokkaa kaverin tietoja.");
-            System.out.println("4. Lisää askar.");
-            System.out.println("5. Listaa askareet.");
+            System.out.println("4. Poista kaveri kalenterista.");
+            System.out.println("5. Lisää askar.");
+            System.out.println("6. Listaa askareet.");
             System.out.println("0. Lopeta.");
             System.out.println("Mitä haluat tehdä? (syötä numero)");
             do {
@@ -46,9 +49,11 @@ public class Launcher {
                         break;
                 case 3: kalenteri.muokkaaKaveria();
                         break;
-                case 4: kalenteri.lisaaTekeminen();
+                case 4: kalenteri.poistaKaveri();
                         break;
-                case 5: kalenteri.listaaTekemiset();
+                case 5: kalenteri.lisaaTekeminen();
+                        break;
+                case 6: kalenteri.listaaTekemiset();
                         break;
                 case 0: System.exit(0);        
                 default: 

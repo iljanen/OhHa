@@ -49,10 +49,17 @@ public class Kalenteri {
         boolean Loop = true;
         boolean onnistui = false;
         while(Loop){
-            System.out.println("Syötä kaverin nimi: ");
+            System.out.println("Muokkaus aloitettu");
+            System.out.println("------------------");
+            System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
             String nimi = lukija.nextLine();
+            if(nimi.trim().isEmpty()){
+                System.out.println("Muokkaus peruttu");
+                System.out.println("----------------");
+                break;
+            }
             for(Kaveri kaveri : kaverilista){
-                if(nimi.toLowerCase().equals(kaveri.Nimi().toLowerCase())){
+                if(nimi.equalsIgnoreCase(kaveri.Nimi())){
                     System.out.println("Syötä uusi nimi: ");
                     String uusiNimi = lukija.nextLine();
                     kaveri.muokkaaNimi(uusiNimi);
@@ -68,17 +75,51 @@ public class Kalenteri {
         }
     }
     
+    public void poistaKaveri(){
+        boolean Loop = true;
+        boolean onnistui = false;
+        Kaveri poistettava = new Kaveri();
+        while (Loop){
+            System.out.println("Poisto aloitettu");
+            System.out.println("----------------");
+            System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
+            String nimi = lukija.nextLine();
+            if(nimi.trim().isEmpty()){
+                System.out.println("Poisto peruttu");
+                System.out.println("--------------");
+                break;
+            }
+            for(Kaveri kaveri : kaverilista){
+                if(nimi.equalsIgnoreCase(kaveri.Nimi())){
+                    poistettava = kaveri;
+                    onnistui = true;
+                    Loop = false;
+                }
+            }
+            if(onnistui == true){
+                kaverilista.remove(poistettava);
+                System.out.println("Kaveri poistettu kalenterista.");
+            }else{
+                System.out.println("Kaveria ei löytynyt.");
+            }
+        }
+    }
+    
     public ArrayList<Kaveri> kaverilista(){ //Palauttaa kaverilistan sisällön
         return kaverilista;
     }
     
     public void listaaKaverit(){
-        for( Kaveri kaveri : kaverilista){
-            System.out.println(kaveri.tulosta());
-            System.out.println("\n");
+        if(kaverilista.isEmpty()){
+            System.out.println("Kalenterissa ei ole kavereita.\n");            
+        }else{
+            for( Kaveri kaveri : kaverilista){
+                System.out.println(kaveri.tulosta());
+                System.out.println("\n");
+            }            
+            System.out.println("-----------");
+            System.out.println("Tulostettu");
         }
-        System.out.println("-----------");
-        System.out.println("Tulostettu");
     }
     
     public void lisaaTekeminen(){

@@ -13,6 +13,11 @@ public class Kaveri {
         this.ika = ika;
         this.puhelin = puhelin;
     }
+    public Kaveri(){
+        this.nimi = "";
+        this.ika = 0;
+        this.puhelin = "";
+    }
     
     public String Nimi(){
         return this.nimi;
