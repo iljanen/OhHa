@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 
 public class Kalenteri {
     
+    private Tulostaja tulostaja = new Tulostaja();
     private Scanner lukija = new Scanner(System.in);
     private ArrayList<Kaveri>kaverilista;
     private ArrayList<Tekeminen>askarlista;
@@ -22,13 +23,10 @@ public class Kalenteri {
     public void lisaaKaveri(){ //Parametriton metodi kaverin lisäämiseen
         String nimi;
         int ika;
-        String puhelin;
-        System.out.println("Kaverin nimi: ");
-        nimi = lukija.nextLine();
-        System.out.println("Kaverin ikä: ");
-        ika = Integer.parseInt(lukija.nextLine());
-        System.out.println("Kaverin puhelinnumero: ");        
-        puhelin = lukija.nextLine();
+        String puhelin;       
+        nimi = tulostaja.kysy("Kaverin nimi: ");
+        ika = tulostaja.kysyNumero("Kaverin ikä: ");        
+        puhelin = tulostaja.kysy("Kaverin puhelinnumero: ");
         if(puhelin.isEmpty()){
             puhelin = "Ei ole.";
         }
@@ -51,8 +49,7 @@ public class Kalenteri {
         while(Loop){
             System.out.println("Muokkaus aloitettu");
             System.out.println("------------------");
-            System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
-            String nimi = lukija.nextLine();
+            String nimi = tulostaja.kysy("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
             if(nimi.trim().isEmpty()){
                 System.out.println("Muokkaus peruttu");
                 System.out.println("----------------");
