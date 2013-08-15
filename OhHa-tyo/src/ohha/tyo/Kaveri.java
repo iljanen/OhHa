@@ -1,8 +1,9 @@
-
 package ohha.tyo;
 
+import java.io.Serializable;
 
-public class Kaveri {
+
+public class Kaveri implements Serializable{
 
     private String nimi;
     private int ika;

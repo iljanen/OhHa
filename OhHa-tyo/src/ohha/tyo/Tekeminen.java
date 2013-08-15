@@ -1,10 +1,11 @@
 package ohha.tyo;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Tekeminen {
+public class Tekeminen implements Serializable{
     
     private Date aika;
     private String paikka;

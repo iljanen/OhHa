@@ -3,6 +3,8 @@ package ohha.tyo;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import Save_Load.TuoKalenteri;
+import Save_Load.TallennaKalenteri;
 
 public class Launcher {
     
@@ -16,7 +18,29 @@ public class Launcher {
         this.kalenteri = new Kalenteri();
     }
     
+    public Launcher(Kalenteri kalenteri){
+        this.kalenteri = kalenteri;
+    }
+    public void lataaKalenteri(){
+        System.out.println("1.Uusi kalenteri.");
+        System.out.println("2.Lataa kalenteri.");
+        int y = lukija.nextInt();
+        if(y==2){
+            Kalenteri apu;
+            TuoKalenteri lataa = new TuoKalenteri();
+            apu = lataa.palautaKalenteri();
+            this.kalenteri = apu;
+        }
+    }
+    
+    public void tallennaKalenteri(){
+        TallennaKalenteri tallenna = new TallennaKalenteri(kalenteri);
+        tallenna.tallennaTiedostoon(this.kalenteri);
+    }
+    
     public void aloita(){
+        
+        lataaKalenteri();
         
         while(cont){
             boolean started = true;
@@ -28,6 +52,7 @@ public class Launcher {
             System.out.println("4. Poista kaveri kalenterista.");
             System.out.println("5. Lisää askar.");
             System.out.println("6. Listaa askareet.");
+            System.out.println("7. Tallenna kalenteri.");
             System.out.println("0. Lopeta.");
             System.out.println("Mitä haluat tehdä? (syötä numero)");
             do {
@@ -54,6 +79,8 @@ public class Launcher {
                 case 5: kalenteri.lisaaTekeminen();
                         break;
                 case 6: kalenteri.listaaTekemiset();
+                        break;
+                case 7: tallennaKalenteri();
                         break;
                 case 0: System.exit(0);        
                 default: 

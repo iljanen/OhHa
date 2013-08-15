@@ -165,7 +165,14 @@ public class Kalenteri {
             } 
         }while(jatka);
         
-        return null;
-        
+        return null;       
+    }
+    
+    public void setKaverilista(ArrayList<Kaveri> kaverilista){
+        this.kaverilista = kaverilista;
+    }
+    
+    public void setAskarlista(ArrayList<Tekeminen> askarlista){
+        this.askarlista = askarlista;
     }
 }
