@@ -20,8 +20,10 @@ public class TallennaKalenteri {
             save.writeObject(kalenteri.kaverilista());
             save.writeObject(kalenteri.askarlista());
             save.close();
+            System.out.println("Tallennus onnistui!");
         }catch(Exception e){
             e.printStackTrace();
+            System.out.println("Tallennus epäonnistui! :(");
         }
         
     }

@@ -23,8 +23,10 @@ public class TuoKalenteri {
             
             this.kalenteri.setKaverilista((ArrayList<Kaveri>)save.readObject());
             this.kalenteri.setAskarlista((ArrayList<Tekeminen>)save.readObject());
+            System.out.println("Lataus onnistui!");
         }catch(Exception e){
             e.printStackTrace();
+            System.out.println("Lataus epäonnistui!");
         }
     }
 }

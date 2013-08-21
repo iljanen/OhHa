@@ -1,13 +1,16 @@
-package ohha.tyo;
+package Kayttoliittyma;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import Save_Load.TuoKalenteri;
 import Save_Load.TallennaKalenteri;
+import ohha.tyo.Kalenteri;
+import ohha.tyo.*;
 
 public class Launcher {
     
+    private Tulostaja tulostaja = new Tulostaja();
     private Scanner lukija = new Scanner(System.in);
     private int n;
     private Kalenteri kalenteri;      
@@ -72,9 +75,9 @@ public class Launcher {
                         break;
                 case 2: kalenteri.listaaKaverit();
                         break;
-                case 3: kalenteri.muokkaaKaveria();
+                case 3: kalenteri.muokkaaKaveria(tulostaja.kysyMuokattavaKaveri(kalenteri.kaverilista()));
                         break;
-                case 4: kalenteri.poistaKaveri();
+                case 4: kalenteri.poistaKaveri(tulostaja.kysyPoistettavaKaveri(kalenteri.kaverilista()));
                         break;
                 case 5: kalenteri.lisaaTekeminen();
                         break;
@@ -82,7 +85,8 @@ public class Launcher {
                         break;
                 case 7: tallennaKalenteri();
                         break;
-                case 0: System.exit(0);        
+                case 0: System.out.println("Heippa!");
+                        System.exit(0);        
                 default: 
                                                                     
             

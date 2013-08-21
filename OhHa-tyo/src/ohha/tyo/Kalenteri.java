@@ -43,63 +43,31 @@ public class Kalenteri {
         kaverilista.add(kaveri);
     }
     
-    public void muokkaaKaveria (){
-        boolean Loop = true;
-        boolean onnistui = false;
-        while(Loop){
-            System.out.println("Muokkaus aloitettu");
-            System.out.println("------------------");
-            String nimi = tulostaja.kysy("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
-            if(nimi.trim().isEmpty()){
-                System.out.println("Muokkaus peruttu");
-                System.out.println("----------------");
-                break;
-            }
-            for(Kaveri kaveri : kaverilista){
-                if(nimi.equalsIgnoreCase(kaveri.Nimi())){
-                    System.out.println("Syötä uusi nimi: ");
-                    String uusiNimi = lukija.nextLine();
-                    kaveri.muokkaaNimi(uusiNimi);
-                    onnistui = true;
-                    Loop = false;
-                }
-            }
-            if(onnistui == true){
-                System.out.println("Muokkaus onnistui.");
-            }else{
-                System.out.println("Kaveria ei löytynyt.");
-            }
+    public void muokkaaKaveria (Kaveri muokattava){
+        if(muokattava == null){
+        }else{
+            String nimi = tulostaja.kysy("Syötä uusi nimi: ");
+            muokattava.muokkaaNimi(nimi);
+            int ika = tulostaja.kysyNumero("Syötä uusi ikä: ");
+            muokattava.muokkaaIka(ika);
+            String puhelin = tulostaja.kysy("Syötä uusi puhelinnumero: ");
+            muokattava.muokkaaPuhelin(puhelin);
         }
+        
     }
     
-    public void poistaKaveri(){
-        boolean Loop = true;
-        boolean onnistui = false;
-        Kaveri poistettava = new Kaveri();
-        while (Loop){
-            System.out.println("Poisto aloitettu");
-            System.out.println("----------------");
-            System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
-            String nimi = lukija.nextLine();
-            if(nimi.trim().isEmpty()){
-                System.out.println("Poisto peruttu");
-                System.out.println("--------------");
-                break;
-            }
+    public void poistaKaveri(Kaveri poistettava){ //Luokka testausta varten.
+        Kaveri pois = new Kaveri();
+        if(poistettava == null){            
+        }else{
             for(Kaveri kaveri : kaverilista){
-                if(nimi.equalsIgnoreCase(kaveri.Nimi())){
-                    poistettava = kaveri;
-                    onnistui = true;
-                    Loop = false;
-                }
-            }
-            if(onnistui == true){
-                kaverilista.remove(poistettava);
-                System.out.println("Kaveri poistettu kalenterista.");
-            }else{
-                System.out.println("Kaveria ei löytynyt.");
+                if(poistettava.equals(kaveri)){
+                    pois = kaveri;
+                    System.out.println("Poisto onnistui!");
+                }           
             }
         }
+        kaverilista.remove(pois);
     }
     
     public ArrayList<Kaveri> kaverilista(){ //Palauttaa kaverilistan sisällön
@@ -140,6 +108,10 @@ public class Kalenteri {
         askarlista.add(tekeminen);
     }
     
+    public void muokkaaTekeminen(){
+        
+    }
+    
     public ArrayList<Tekeminen> askarlista(){
         return askarlista;
     }
@@ -175,4 +147,5 @@ public class Kalenteri {
     public void setAskarlista(ArrayList<Tekeminen> askarlista){
         this.askarlista = askarlista;
     }
+    
 }

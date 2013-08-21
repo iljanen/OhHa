@@ -4,6 +4,10 @@
  */
 package ohha.tyo;
 
+import java.util.Scanner;
+import java.util.ConcurrentModificationException;
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -65,6 +69,16 @@ public class KalenteriTest {
         Kaveri kaveri = new Kaveri("Mika", 23, "09850");
         kaveri.muokkaaNimi("Miksu");
         assertEquals("Miksu", kaveri.Nimi());
+    }
+    
+    @Test
+    public void poistoToimii(){        
+        Kalenteri kalenteri = new Kalenteri();
+        Kalenteri tyhja = new Kalenteri();
+        Kaveri kaveri = new Kaveri("Mika", 23, "09850");
+        kalenteri.lisaaKaveri(kaveri);
+        kalenteri.poistaKaveri(kaveri);
+        assertEquals(tyhja.kaverilista(), kalenteri.kaverilista());
     }
 
     
