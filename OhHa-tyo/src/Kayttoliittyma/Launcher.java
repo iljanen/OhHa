@@ -8,6 +8,10 @@ import Save_Load.TallennaKalenteri;
 import ohha.tyo.Kalenteri;
 import ohha.tyo.*;
 
+/**
+ * Luokka hoitaa tekstikäyttöliittymän tulostuksen ja actionit 
+ * @author Ilja
+ */
 public class Launcher {
     
     private Tulostaja tulostaja = new Tulostaja();
@@ -17,17 +21,27 @@ public class Launcher {
     private boolean cont = true;
     private boolean jatka = true;
     
+    /**
+     * Parametriton konstruktori Launcher
+     */
     public Launcher(){
         this.kalenteri = new Kalenteri();
     }
     
+    /**
+     *  Parametrillinen konstruktori Launcher
+     * @param kalenteri
+     */
     public Launcher(Kalenteri kalenteri){
         this.kalenteri = kalenteri;
     }
+    /**
+     *  Kysyy ladataanko kalenteri vai aloitetaanko uusi
+     */
     public void lataaKalenteri(){
         System.out.println("1.Uusi kalenteri.");
         System.out.println("2.Lataa kalenteri.");
-        int y = lukija.nextInt();
+        int y = tulostaja.kysyNumero("");
         if(y==2){
             Kalenteri apu;
             TuoKalenteri lataa = new TuoKalenteri();
@@ -36,11 +50,17 @@ public class Launcher {
         }
     }
     
+    /**
+     *  vie kalenterin TallennaKalenteri-luokkaan, jos kalenteri halutaan tallentaa
+     */
     public void tallennaKalenteri(){
         TallennaKalenteri tallenna = new TallennaKalenteri(kalenteri);
         tallenna.tallennaTiedostoon(this.kalenteri);
     }
     
+    /**
+     *  Tämä kutsutaan Main-metodista ja se aloittaa ohjelman käyttöliittymän
+     */
     public void aloita(){
         
         lataaKalenteri();

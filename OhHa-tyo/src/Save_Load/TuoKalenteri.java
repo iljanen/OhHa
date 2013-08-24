@@ -4,17 +4,30 @@ import java.io.*;
 import java.util.ArrayList;
 import ohha.tyo.*;
 
+/**
+ * Luokka kalenterin lukemiseen ja tuomiseen tiedostosta
+ * @author Ilja
+ */
 public class TuoKalenteri {
     
     private Kalenteri kalenteri = new Kalenteri();
     
+    /**
+     * Konstruktori
+     */
     public TuoKalenteri(){
         tuoKalenteri();
     }
+    /**
+     * palauttaa ladatun kalenterin Launcherin käyttöön
+     * @return
+     */
     public Kalenteri palautaKalenteri(){
         return kalenteri;
     }
-    
+    /**
+     * Lukee kalenterin tiedostosta ja asettaa muuttujat
+     */
     private void tuoKalenteri(){
         
         try{

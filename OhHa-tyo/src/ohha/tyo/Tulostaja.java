@@ -3,16 +3,28 @@ package ohha.tyo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Luokan on tarkoitus korvata Scanner-metodit yhdellä luokalla
+ * @author Ilja
+ */
 public class Tulostaja {
     
     private Scanner lukija;
     private Scanner intLukija;
     
+    /**
+     * Konstruktori tulostajalle
+     */
     public Tulostaja(){
         this.lukija = new Scanner(System.in);
         this.intLukija = new Scanner(System.in);
     }
     
+    /**
+     * Tulostaa kysymyksen ja ottaa talteen käyttäjän vastauksen
+     * @param kysymys
+     * @return
+     */
     public String kysy(String kysymys){
         String vastaus;
         System.out.println(kysymys);
@@ -20,6 +32,11 @@ public class Tulostaja {
         return vastaus;
     }
     
+    /**
+     * Tulostaa kysymyksen ja ottaa talteen käyttäjän vastauksen, vain numeroidut
+     * @param kysymys
+     * @return
+     */
     public int kysyNumero(String kysymys){
         int vastaus;
         System.out.println(kysymys);
@@ -30,6 +47,11 @@ public class Tulostaja {
         vastaus = intLukija.nextInt();
         return vastaus;
     }
+    /**
+     * erillinen metodi kaverin poistamisen avuksi
+     * @param lista
+     * @return
+     */
     public Kaveri kysyPoistettavaKaveri(ArrayList<Kaveri>lista){
         boolean Loop = true;
         boolean onnistui = false;
@@ -56,6 +78,11 @@ public class Tulostaja {
         return null;
     }
     
+    /**
+     * metodi kaverin muokkaamisen helpottamiseksi
+     * @param lista
+     * @return
+     */
     public Kaveri kysyMuokattavaKaveri(ArrayList<Kaveri>lista){
         boolean Loop = true;
         Kaveri muokattava = new Kaveri();
