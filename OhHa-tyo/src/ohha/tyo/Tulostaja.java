@@ -111,6 +111,10 @@ public class Tulostaja {
         return null;
     }
     
+    /**
+     * tulostaa menu-valikon käyttöliittymälle
+     * @param kalenteri
+     */
     public void tulostaMenu(Kalenteri kalenteri){
         
             int n = 0;

@@ -41,6 +41,10 @@ public class TallennaKalenteri {
         
     }
     
+    /**
+     * Käyttöliittymä kutsuu tämän metodin käyttäjän halutessa tallentaa kalenterin.
+     * @param kalenteri
+     */
     public void tallennaKalenteri(Kalenteri kalenteri){
         tallennaTiedostoon(kalenteri);
     }
