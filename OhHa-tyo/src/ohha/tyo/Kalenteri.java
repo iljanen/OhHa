@@ -1,11 +1,10 @@
 package ohha.tyo;
 
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Luokka sisältää metodit kalenterin käyttämiseen
@@ -14,7 +13,6 @@ import java.text.SimpleDateFormat;
 public class Kalenteri {
     
     private Tulostaja tulostaja = new Tulostaja();
-    private Scanner lukija = new Scanner(System.in);
     private ArrayList<Kaveri>kaverilista;
     private ArrayList<Tekeminen>askarlista;
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -124,13 +122,10 @@ public class Kalenteri {
         String aikaApu;
         String paikka;
         String askar;
-        System.out.println("Muistutuksen aika? Muodossa dd/mm/20yy :");
-        aikaApu = lukija.nextLine();
-        aika = muutaAika(aikaApu);
-        System.out.println("Paikka? :");
-        paikka = lukija.nextLine();
-        System.out.println("Muistutus: ");
-        askar = lukija.nextLine();
+        aikaApu = tulostaja.kysy("Muistutuksen aika? Muodossa dd/mm/20yy :");
+        aika = muutaAika(aikaApu);   
+        paikka = tulostaja.kysy("Paikka? :");
+        askar = tulostaja.kysy("Muistutus: ");
         
         Tekeminen tekeminen = new Tekeminen(aika, paikka, askar);
         askarlista.add(tekeminen);
@@ -183,8 +178,7 @@ public class Kalenteri {
                 jatka = false;
                 return d;
             }catch(ParseException e){
-                System.out.println("Ei pysty muuttamaan: " + aika);
-                aika = lukija.nextLine();
+                aika = tulostaja.kysy("Ei pysty muuttamaan: " + aika);
             } 
         }while(jatka);
         

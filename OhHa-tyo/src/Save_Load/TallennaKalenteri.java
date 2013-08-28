@@ -41,6 +41,10 @@ public class TallennaKalenteri {
         
     }
     
+    public void tallennaKalenteri(Kalenteri kalenteri){
+        tallennaTiedostoon(kalenteri);
+    }
+    
     
     
 }

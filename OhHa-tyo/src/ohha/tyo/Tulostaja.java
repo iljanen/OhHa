@@ -1,6 +1,8 @@
 package ohha.tyo;
 
+import Save_Load.TallennaKalenteri;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -11,6 +13,7 @@ public class Tulostaja {
     
     private Scanner lukija;
     private Scanner intLukija;
+    private TallennaKalenteri tallenna;
     
     /**
      * Konstruktori tulostajalle
@@ -106,5 +109,59 @@ public class Tulostaja {
             }
         }
         return null;
+    }
+    
+    public void tulostaMenu(Kalenteri kalenteri){
+        
+            int n = 0;
+       
+            while(true){
+            boolean jatka = true;
+            System.out.println("**Päävalikko**");
+            System.out.println("--------------");
+            System.out.println("1. Lisää kaveri.");
+            System.out.println("2. Listaa kaverit.");
+            System.out.println("3. Muokkaa kaverin tietoja.");
+            System.out.println("4. Poista kaveri kalenterista.");
+            System.out.println("5. Lisää askar.");
+            System.out.println("6. Listaa askareet.");
+            System.out.println("7. Tallenna kalenteri.");
+            System.out.println("0. Lopeta.");
+            System.out.println("Mitä haluat tehdä? (syötä numero)");
+            do {
+                try{
+                    n = lukija.nextInt();
+                    jatka = false;
+                }catch(InputMismatchException e){
+                    System.err.printf("\nVirhe: %s\n", e);
+                    lukija.nextLine();
+                    System.out.println("Et syöttänyt numeroa, kokeile uudestaan");                
+                }
+            }while(jatka);
+            
+            switch(n){
+                case 1: kalenteri.lisaaKaveri();
+                        break;
+                case 2: kalenteri.listaaKaverit();
+                        break;
+                case 3: kalenteri.muokkaaKaveria(kysyMuokattavaKaveri(kalenteri.kaverilista()));
+                        break;
+                case 4: kalenteri.poistaKaveri(kysyPoistettavaKaveri(kalenteri.kaverilista()));
+                        break;
+                case 5: kalenteri.lisaaTekeminen();
+                        break;
+                case 6: kalenteri.listaaTekemiset();
+                        break;               
+                case 7: tallenna = new TallennaKalenteri(kalenteri);
+                        tallenna.tallennaKalenteri(kalenteri);
+                        break;
+                case 0: System.out.println("Heippa!");
+                        System.exit(0);        
+                default: 
+                                                                    
+            
+            }
+            }
+            
     }
 }

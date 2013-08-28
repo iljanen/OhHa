@@ -1,11 +1,7 @@
 package Kayttoliittyma;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.InputMismatchException;
 import Save_Load.TuoKalenteri;
-import Save_Load.TallennaKalenteri;
-import ohha.tyo.Kalenteri;
+import java.util.Scanner;
 import ohha.tyo.*;
 
 /**
@@ -17,9 +13,7 @@ public class Launcher {
     private Tulostaja tulostaja = new Tulostaja();
     private Scanner lukija = new Scanner(System.in);
     private int n;
-    private Kalenteri kalenteri;      
-    private boolean cont = true;
-    private boolean jatka = true;
+    private Kalenteri kalenteri;
     
     /**
      * Parametriton konstruktori Launcher
@@ -50,13 +44,6 @@ public class Launcher {
         }
     }
     
-    /**
-     *  vie kalenterin TallennaKalenteri-luokkaan, jos kalenteri halutaan tallentaa
-     */
-    public void tallennaKalenteri(){
-        TallennaKalenteri tallenna = new TallennaKalenteri(kalenteri);
-        tallenna.tallennaTiedostoon(this.kalenteri);
-    }
     
     /**
      *  Tämä kutsutaan Main-metodista ja se aloittaa ohjelman käyttöliittymän
@@ -65,52 +52,6 @@ public class Launcher {
         
         lataaKalenteri();
         
-        while(cont){
-            boolean started = true;
-            System.out.println("**Päävalikko**");
-            System.out.println("--------------");
-            System.out.println("1. Lisää kaveri.");
-            System.out.println("2. Listaa kaverit.");
-            System.out.println("3. Muokkaa kaverin tietoja.");
-            System.out.println("4. Poista kaveri kalenterista.");
-            System.out.println("5. Lisää askar.");
-            System.out.println("6. Listaa askareet.");
-            System.out.println("7. Tallenna kalenteri.");
-            System.out.println("0. Lopeta.");
-            System.out.println("Mitä haluat tehdä? (syötä numero)");
-            do {
-                try{
-                    n = lukija.nextInt();
-                    jatka = false;
-                }catch(InputMismatchException e){
-                    System.err.printf("\nVirhe: %s\n", e);
-                    lukija.nextLine();
-                    System.out.println("Et syöttänyt numeroa, kokeile uudestaan");                
-                }
-            }while(jatka);
-            
-            
-            switch(n){
-                case 1: kalenteri.lisaaKaveri();
-                        break;
-                case 2: kalenteri.listaaKaverit();
-                        break;
-                case 3: kalenteri.muokkaaKaveria(tulostaja.kysyMuokattavaKaveri(kalenteri.kaverilista()));
-                        break;
-                case 4: kalenteri.poistaKaveri(tulostaja.kysyPoistettavaKaveri(kalenteri.kaverilista()));
-                        break;
-                case 5: kalenteri.lisaaTekeminen();
-                        break;
-                case 6: kalenteri.listaaTekemiset();
-                        break;
-                case 7: tallennaKalenteri();
-                        break;
-                case 0: System.out.println("Heippa!");
-                        System.exit(0);        
-                default: 
-                                                                    
-            
-            }
-        }
+        tulostaja.tulostaMenu(kalenteri);
     }
 }
