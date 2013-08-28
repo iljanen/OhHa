@@ -157,7 +157,7 @@ public class Tulostaja {
                 case 6: kalenteri.listaaTekemiset();
                         break;               
                 case 7: tallenna = new TallennaKalenteri(kalenteri);
-                        tallenna.tallennaKalenteri(kalenteri);
+                        tallenna.tallennaKalenteri(kalenteri, "SaveObj.sav");
                         break;
                 case 0: System.out.println("Heippa!");
                         System.exit(0);        

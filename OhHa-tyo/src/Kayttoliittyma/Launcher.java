@@ -38,7 +38,7 @@ public class Launcher {
         int y = tulostaja.kysyNumero("");
         if(y==2){
             Kalenteri apu;
-            TuoKalenteri lataa = new TuoKalenteri();
+            TuoKalenteri lataa = new TuoKalenteri("SaveObj.sav");
             apu = lataa.palautaKalenteri();
             this.kalenteri = apu;
         }

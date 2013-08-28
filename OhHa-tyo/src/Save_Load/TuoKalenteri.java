@@ -15,8 +15,8 @@ public class TuoKalenteri {
     /**
      * Konstruktori
      */
-    public TuoKalenteri(){
-        tuoKalenteri();
+    public TuoKalenteri(String tiedosto){
+        tuoKalenteri(tiedosto);
     }
     /**
      * palauttaa ladatun kalenterin Launcherin käyttöön
@@ -28,17 +28,16 @@ public class TuoKalenteri {
     /**
      * Lukee kalenterin tiedostosta ja asettaa muuttujat
      */
-    private void tuoKalenteri(){
+    private void tuoKalenteri(String tiedosto){
         
         try{
-            FileInputStream saveFile = new FileInputStream("SaveObj.sav");
+            FileInputStream saveFile = new FileInputStream(tiedosto);
             ObjectInputStream save = new ObjectInputStream(saveFile);
             
             this.kalenteri.setKaverilista((ArrayList<Kaveri>)save.readObject());
             this.kalenteri.setAskarlista((ArrayList<Tekeminen>)save.readObject());
             System.out.println("Lataus onnistui!");
         }catch(Exception e){
-            e.printStackTrace();
             System.out.println("Lataus epäonnistui!");
         }
     }

@@ -24,10 +24,10 @@ public class TallennaKalenteri {
      * jos se epäonnistuu
      * @param kalenteri
      */
-    public void tallennaTiedostoon(Kalenteri kalenteri){
+    public void tallennaTiedostoon(Kalenteri kalenteri, String tiedosto){
         
         try{
-            FileOutputStream saveFile=new FileOutputStream("SaveObj.sav");
+            FileOutputStream saveFile=new FileOutputStream(tiedosto);
             ObjectOutputStream save = new ObjectOutputStream(saveFile);
             
             save.writeObject(kalenteri.kaverilista());
@@ -45,8 +45,8 @@ public class TallennaKalenteri {
      * Käyttöliittymä kutsuu tämän metodin käyttäjän halutessa tallentaa kalenterin.
      * @param kalenteri
      */
-    public void tallennaKalenteri(Kalenteri kalenteri){
-        tallennaTiedostoon(kalenteri);
+    public void tallennaKalenteri(Kalenteri kalenteri, String tiedosto){
+        tallennaTiedostoon(kalenteri, tiedosto);
     }
     
     
