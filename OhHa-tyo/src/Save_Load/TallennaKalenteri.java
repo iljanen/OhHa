@@ -3,6 +3,7 @@ package Save_Load;
 import java.io.*;
 import ohha.tyo.*;
 
+
 /**
  * Luokka kalenterin viemiseen tiedostoon
  * @author Ilja
@@ -33,7 +34,7 @@ public class TallennaKalenteri {
             save.writeObject(kalenteri.kaverilista());
             save.writeObject(kalenteri.askarlista());
             save.close();
-            System.out.println("Tallennus onnistui!");
+            System.out.println("Tallennus onnistui!");           
         }catch(Exception e){
             System.out.println("Tallennus epäonnistui! :(");
         }
