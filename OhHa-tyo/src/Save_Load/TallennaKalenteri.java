@@ -35,7 +35,6 @@ public class TallennaKalenteri {
             save.close();
             System.out.println("Tallennus onnistui!");
         }catch(Exception e){
-            e.printStackTrace();
             System.out.println("Tallennus epäonnistui! :(");
         }
         

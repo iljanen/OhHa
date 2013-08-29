@@ -1,7 +1,6 @@
 package Kayttoliittyma;
 
 import Save_Load.TuoKalenteri;
-import java.util.Scanner;
 import ohha.tyo.*;
 
 /**
@@ -11,8 +10,6 @@ import ohha.tyo.*;
 public class Launcher {
     
     private Tulostaja tulostaja = new Tulostaja();
-    private Scanner lukija = new Scanner(System.in);
-    private int n;
     private Kalenteri kalenteri;
     
     /**

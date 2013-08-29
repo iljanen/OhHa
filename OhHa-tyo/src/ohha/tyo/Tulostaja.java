@@ -56,12 +56,11 @@ public class Tulostaja {
      * @return
      */
     public Kaveri kysyPoistettavaKaveri(ArrayList<Kaveri>lista){
-        boolean Loop = true;
         boolean onnistui = false;
         Kaveri poistettava = new Kaveri();
         System.out.println("Poisto aloitettu");
         System.out.println("----------------");
-        while (Loop){        
+        while (true){        
             System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
             String nimi = lukija.nextLine();
             if(nimi.trim().isEmpty()){
