@@ -1,5 +1,6 @@
 package ohha.tyo;
 
+import Kayttoliittyma.Tulostaja;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,7 @@ public class Kalenteri {
     private Tulostaja tulostaja = new Tulostaja();
     private ArrayList<Kaveri>kaverilista;
     private ArrayList<Tekeminen>askarlista;
-    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+    DateFormat ajanMuuttaja = new SimpleDateFormat("dd/MM/yyyy");
     
     /**
      * Konstruktori, alustaa kalenterin
@@ -174,7 +175,7 @@ public class Kalenteri {
         boolean jatka = true;
         do{
             try{
-                d = df.parse(aika);
+                d = ajanMuuttaja.parse(aika);
                 jatka = false;
                 return d;
             }catch(ParseException e){

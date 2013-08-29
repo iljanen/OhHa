@@ -1,9 +1,11 @@
-package ohha.tyo;
+package Kayttoliittyma;
 
 import Save_Load.TallennaKalenteri;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import ohha.tyo.Kalenteri;
+import ohha.tyo.Kaveri;
 
 /**
  * Luokan on tarkoitus korvata Scanner-metodit yhdellä luokalla

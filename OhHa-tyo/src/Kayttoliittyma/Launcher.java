@@ -32,8 +32,8 @@ public class Launcher {
     public void lataaKalenteri(){
         System.out.println("1.Uusi kalenteri.");
         System.out.println("2.Lataa kalenteri.");
-        int y = tulostaja.kysyNumero("");
-        if(y==2){
+        int valittuAction = tulostaja.kysyNumero("");
+        if(valittuAction==2){
             Kalenteri apu;
             TuoKalenteri lataa = new TuoKalenteri("SaveObj.sav");
             apu = lataa.palautaKalenteri();
