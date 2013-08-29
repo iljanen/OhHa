@@ -26,6 +26,8 @@ public class Launcher {
     public Launcher(Kalenteri kalenteri){
         this.kalenteri = kalenteri;
     }
+    
+    
     /**
      *  Kysyy ladataanko kalenteri vai aloitetaanko uusi
      */

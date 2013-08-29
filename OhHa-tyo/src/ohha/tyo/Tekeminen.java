@@ -37,6 +37,8 @@ public class Tekeminen implements Serializable{
         return this.aika;
     }
     
+    
+    
     /**
      * getter ajalle, formatoituna
      * @return

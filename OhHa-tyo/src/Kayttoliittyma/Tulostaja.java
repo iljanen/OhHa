@@ -37,6 +37,7 @@ public class Tulostaja {
         return vastaus;
     }
     
+    
     /**
      * Tulostaa kysymyksen ja ottaa talteen käyttäjän vastauksen, vain numeroidut
      * @param kysymys

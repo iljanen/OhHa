@@ -165,6 +165,7 @@ public class Kalenteri {
         System.out.println("-----------\nTulostettu");
     }
     
+    
     /**
      * Metodi Date-tietotyypin muotoilemiseen luettavaampaan muotoon
      * @param aika
