@@ -77,18 +77,19 @@ public class Kalenteri {
      * Metodi kaverin poistoon
      * @param poistettava
      */
-    public void poistaKaveri(Kaveri poistettava){ //Luokka testausta varten.
+    public void poistaKaveri(Kaveri poistettava){ 
         Kaveri pois = new Kaveri();
         if(poistettava == null){            
         }else{
             for(Kaveri kaveri : kaverilista){
-                if(poistettava.equals(kaveri)){
+                if(poistettava.Nimi().equals(kaveri.Nimi())){
                     pois = kaveri;
                     System.out.println("Poisto onnistui!");
+                    kaverilista.remove(pois);
                 }           
             }
         }
-        kaverilista.remove(pois);
+        
     }
     
     /**
@@ -140,11 +141,18 @@ public class Kalenteri {
         askarlista.add(tekeminen);
     }
     
-    /**
-     * Metodi askareen muokkaamiseen
-     */
-    public void muokkaaTekeminen(){
-        
+    
+    public void poistaTekeminen(Tekeminen poistettava){
+        Tekeminen pois = new Tekeminen();
+        if(poistettava == null){    
+        }else{
+            for(Tekeminen tekeminen : askarlista){
+                if(poistettava.equals(tekeminen)){
+                    pois = tekeminen;
+                    System.out.println("Poisto onnistui!");                   
+                }
+            }
+        }askarlista.remove(pois);
     }
     
     /**

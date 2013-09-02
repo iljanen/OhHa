@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import ohha.tyo.Kalenteri;
 import ohha.tyo.Kaveri;
+import ohha.tyo.Tekeminen;
 
 /**
  * Luokan on tarkoitus korvata Scanner-metodit yhdellä luokalla
@@ -89,11 +90,10 @@ public class Tulostaja {
      * @return
      */
     public Kaveri kysyMuokattavaKaveri(ArrayList<Kaveri>lista){
-        boolean Loop = true;
         Kaveri muokattava = new Kaveri();
         System.out.println("Muokkaus aloitettu");
         System.out.println("------------------");
-        while (Loop){
+        while (true){
             System.out.println("Syötä kaverin nimi tai jätä tyhjäksi lopettaaksesi : ");
             String nimi = lukija.nextLine();
             if(nimi.trim().isEmpty()){
@@ -112,7 +112,32 @@ public class Tulostaja {
         }
         return null;
     }
-    
+    /**
+     * metodi askareen poistamisen helpottamiseksi
+     */
+    public Tekeminen kysyPoistettavaAskar(ArrayList<Tekeminen>lista){
+        Tekeminen poistettava = new Tekeminen();
+        System.out.println("Poisto aloitettu");
+        System.out.println("----------------");
+        while(true){
+            System.out.println("Syötä askareen muistutusteksti tai jätä tyhjäksi lopettaaksesi : ");
+            String sisalto = lukija.nextLine();
+            if(sisalto.trim().isEmpty()){
+                System.out.println("Poisto peruttu");
+                System.out.println("--------------");
+                break;
+            }
+            for(Tekeminen tekeminen : lista){
+                if(sisalto.equalsIgnoreCase(tekeminen.Askar())){
+                    poistettava = tekeminen;
+                    return poistettava;
+                }else{
+                    System.out.println("Ei löytynyt vastaavaa muistutusta!\n");
+                }
+            }
+        }
+        return null;
+    }
     /**
      * tulostaa menu-valikon käyttöliittymälle
      * @param kalenteri
@@ -131,12 +156,13 @@ public class Tulostaja {
             System.out.println("4. Poista kaveri kalenterista.");
             System.out.println("5. Lisää askar.");
             System.out.println("6. Listaa askareet.");
-            System.out.println("7. Tallenna kalenteri.");
+            System.out.println("7. Poista askar.");
+            System.out.println("8. Tallenna kalenteri.");
             System.out.println("0. Lopeta.");
             System.out.println("Mitä haluat tehdä? (syötä numero)");
             do {
                 try{
-                    n = lukija.nextInt();
+                    n = intLukija.nextInt();
                     jatka = false;
                 }catch(InputMismatchException e){
                     System.err.printf("\nVirhe: %s\n", e);
@@ -157,8 +183,10 @@ public class Tulostaja {
                 case 5: kalenteri.lisaaTekeminen();
                         break;
                 case 6: kalenteri.listaaTekemiset();
-                        break;               
-                case 7: tallenna = new TallennaKalenteri(kalenteri);
+                        break;   
+                case 7: kalenteri.poistaTekeminen(kysyPoistettavaAskar(kalenteri.askarlista()));
+                        break;
+                case 8: tallenna = new TallennaKalenteri(kalenteri);
                         tallenna.tallennaKalenteri(kalenteri, "SaveObj.sav");
                         break;
                 case 0: System.out.println("Heippa!");

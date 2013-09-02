@@ -30,6 +30,14 @@ public class Tekeminen implements Serializable{
     }
     
     /**
+     * Parametriton konstrukteri
+     */
+    public Tekeminen(){
+        this.aika = null;
+        this.paikka = "";
+        this.askar = "";
+    }
+    /**
      * getter ajalle
      * @return
      */
